@@ -43,6 +43,25 @@ void SelectionSort(int array[], int size)
         swap(&array[min], &array[step]);
     }
 }
+void BubbleSort(int array[], int size)
+{
+
+    for (int step = 0; step < size - 1; ++step)
+    {
+
+        for (int i = 0; i < size - step - 1; ++i)
+        {
+
+            if (array[i] > array[i + 1])
+            {
+
+                int t = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = t;
+            }
+        }
+    }
+}
 int main()
 {
 
@@ -61,7 +80,8 @@ int main()
     int op;
     printf("SELECT SORTING TYPE:\n");
     printf("1. INSERTION SORT\n");
-    printf("1. SELECTION SORT\n");
+    printf("2. SELECTION SORT\n");
+    printf("3. BUBBLE SORT\n");
 
     printf("ENTER THE NUMBER CORRESPONDING TO YOUR SELECTION :\n");
     scanf("%d", &op);
@@ -76,6 +96,12 @@ int main()
     else if (op == 2)
     {
         SelectionSort(data, size);
+        printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER:\n");
+        print_array(data, size);
+    }
+    else if (op == 3)
+    {
+        BubbleSort(data, size);
         printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER:\n");
         print_array(data, size);
     }
