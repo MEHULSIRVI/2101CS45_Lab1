@@ -7,6 +7,10 @@ void subtraction(long int a, long int b)
 {
     printf("RESULT = %ld", a - b);
 }
+void multiplication(long int a, long int b)
+{
+    printf("RESULT = %ld", a * b);
+}
 
 int main()
 {
@@ -16,7 +20,7 @@ int main()
     long int r;
     printf("Enter num2:\n");
     scanf("%ld", &r);
-    printf("Enter code of the operation needed:\n 1. ADD \t 2.SUBTRACTION \n");
+    printf("Enter code of the operation needed:\n 1. ADD \t 2.SUBTRACTION \t 3. MULTIPLICATION \n");
     int n;
     scanf("%d", &n);
     switch (n)
@@ -26,6 +30,9 @@ int main()
         break;
     case 2:
         subtraction(t, r);
+        break;
+    case 3:
+        multiplication(t, r);
         break;
     }
 }
