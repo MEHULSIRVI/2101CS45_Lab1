@@ -11,6 +11,25 @@ void multiplication(long int a, long int b)
 {
     printf("RESULT = %ld", a * b);
 }
+void division(long int a, long int b)
+{
+    if (b != 0)
+    {
+        if (a % b != 0)
+        {
+            float c = a / (float)b;
+            printf("RESULT = %f", c);
+        }
+        else
+        {
+            printf("RESULT = %ld", a / b);
+        }
+    }
+    else
+    {
+        printf("division by 0 ERROR");
+    }
+}
 
 int main()
 {
@@ -20,7 +39,7 @@ int main()
     long int r;
     printf("Enter num2:\n");
     scanf("%ld", &r);
-    printf("Enter code of the operation needed:\n 1. ADD \t 2.SUBTRACTION \t 3. MULTIPLICATION \n");
+    printf("Enter code of the operation needed:\n 1. ADD \t 2.SUBTRACTION \t 3. MULTIPLICATION \t 4.DIVISION \n");
     int n;
     scanf("%d", &n);
     switch (n)
@@ -33,6 +52,9 @@ int main()
         break;
     case 3:
         multiplication(t, r);
+        break;
+    case 4:
+        division(t, r);
         break;
     }
 }
