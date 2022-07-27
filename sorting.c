@@ -123,6 +123,41 @@ void MergeSort(int arr[], int l, int r)
         Merge(arr, l, m, r);
     }
 }
+int Partition(int array[], int low, int high)
+{
+
+    int pivot = array[high];
+
+    int i = (low - 1);
+
+    for (int j = low; j < high; j++)
+    {
+        if (array[j] <= pivot)
+        {
+
+            i++;
+
+            swap(&array[i], &array[j]);
+        }
+    }
+
+    swap(&array[i + 1], &array[high]);
+
+    return (i + 1);
+}
+
+void QuickSort(int array[], int low, int high)
+{
+    if (low < high)
+    {
+
+        int pi = Partition(array, low, high);
+
+        QuickSort(array, low, pi - 1);
+
+        QuickSort(array, pi + 1, high);
+    }
+}
 int main()
 {
 
@@ -144,6 +179,7 @@ int main()
     printf("2. SELECTION SORT\n");
     printf("3. BUBBLE SORT\n");
     printf("4. MERGE SORT\n");
+    printf("5. QUICK SORT\n");
 
     printf("ENTER THE NUMBER CORRESPONDING TO YOUR SELECTION :\n");
     scanf("%d", &op);
@@ -173,4 +209,11 @@ int main()
         printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER: \n");
         print_array(data, size);
     }
+    else if (op == 5)
+    {
+        QuickSort(data, 0, size - 1);
+        printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER: \n");
+        print_array(data, size);
+    }
+    return 0;
 }
