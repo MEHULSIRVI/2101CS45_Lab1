@@ -7,6 +7,12 @@ void print_array(int array[], int size)
     }
     printf("\n");
 }
+void swap(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 void InsertionSort(int array[], int size)
 {
     for (int step = 1; step < size; step++)
@@ -20,6 +26,21 @@ void InsertionSort(int array[], int size)
             --j;
         }
         array[j + 1] = key;
+    }
+}
+void SelectionSort(int array[], int size)
+{
+    for (int step = 0; step < size - 1; step++)
+    {
+        int min = step;
+        for (int i = step + 1; i < size; i++)
+        {
+
+            if (array[i] < array[min])
+                min = i;
+        }
+
+        swap(&array[min], &array[step]);
     }
 }
 int main()
@@ -40,6 +61,7 @@ int main()
     int op;
     printf("SELECT SORTING TYPE:\n");
     printf("1. INSERTION SORT\n");
+    printf("1. SELECTION SORT\n");
 
     printf("ENTER THE NUMBER CORRESPONDING TO YOUR SELECTION :\n");
     scanf("%d", &op);
@@ -48,6 +70,12 @@ int main()
     if (op == 1)
     {
         InsertionSort(data, size);
+        printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER:\n");
+        print_array(data, size);
+    }
+    else if (op == 2)
+    {
+        SelectionSort(data, size);
         printf("THIS IS THE SORTED ARRAY IN ASCENDING ORDER:\n");
         print_array(data, size);
     }
